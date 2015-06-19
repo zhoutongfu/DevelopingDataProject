@@ -4,7 +4,7 @@ transition: rotate
 css: custom.css
 
 author: Zhoutong Fu  
-date: Thu Jun 18 17:26:09 2015
+date: Thu Jun 18 18:31:26 2015
 
 Overview
 ========================================================
@@ -31,6 +31,7 @@ My simple shiny app illustrates the relationship between the number of top compo
 A walk through (1)
 ========================================================
 type: alert
+left: 50%
 
 There are 3 default pictures for users to choose: Taylor Swifty, Bruno Mars and Steve Curry. 
 
@@ -40,9 +41,9 @@ Users are also provided with a slider bar to pick the number of components desir
 
 ***
 
-![original picture1](original.pdf)
 
 
+![plot of chunk unnamed-chunk-2](appPresentation-figure/unnamed-chunk-2-1.png) 
 
 
 
@@ -51,8 +52,9 @@ A walk through (2)
 ========================================================
 type: alert
 
-![recovered picture1](mars_recovered.pdf)
+![plot of chunk unnamed-chunk-3](appPresentation-figure/unnamed-chunk-3-1.png) 
+
 
 *** 
+![plot of chunk unnamed-chunk-4](appPresentation-figure/unnamed-chunk-4-1.png) 
 
-![recovered picture2](swift_recovered.pdf)

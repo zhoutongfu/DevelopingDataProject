@@ -31,6 +31,7 @@ My simple shiny app illustrates the relationship between the number of top compo
 A walk through (1)
 ========================================================
 type: alert
+left: 50%
 
 There are 3 default pictures for users to choose: Taylor Swifty, Bruno Mars and Steve Curry. 
 
@@ -40,9 +41,30 @@ Users are also provided with a slider bar to pick the number of components desir
 
 ***
 
-![original picture1](original.pdf)
+```{r,echo=FALSE}
+setwd("~/Desktop/coursera/develop data products/DevelopingDataProject")
+source("dataFile.R")
 
+showPic <- function(pic){
 
+  # rotate the picture because image function in R has weild angle for veiwing
+  # cat(dim(pic),file=stderr())
+  rotated_pic <- t(pic[nrow(pic):1,])
+  image(rotated_pic,col = gray((0:32)/32),asp=1,xlim=c(0,1),ylim=c(0,1) )
+}
+
+compressedPic <- function(pic,n){
+  p.svd <- svd(pic)
+  p.svd$u[,1:n] %*% diag(p.svd$d[1:n],nrow=n,ncol=n) %*% t(p.svd$v[,1:n])
+}
+```
+
+```{r,echo=FALSE}
+par(mfrow=c(2,1))
+showPic(mars)
+showPic(swift)
+
+```
 
 
 
@@ -51,8 +73,21 @@ A walk through (2)
 ========================================================
 type: alert
 
-![recovered picture1](mars_recovered.pdf)
+```{r,echo=FALSE}
+par(mfrow=c(2,2))
+showPic(compressedPic(mars,5))
+showPic(compressedPic(mars,10))
+showPic(compressedPic(mars,20))
+showPic(compressedPic(mars,40))
+```
+
 
 *** 
+```{r,echo=FALSE}
+par(mfrow=c(2,2))
+showPic(compressedPic(swift,5))
+showPic(compressedPic(swift,10))
+showPic(compressedPic(swift,20))
+showPic(compressedPic(swift,40))
+```
 
-![recovered picture2](swift_recovered.pdf)
